@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	systemdDbus "github.com/coreos/go-systemd/v22/dbus"
-	"github.com/opencontainers/runc/libcontainer/cgroups"
-	"github.com/opencontainers/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer/cgroups"
+	"github.com/cedana/runc/libcontainer/configs"
 )
 
 func newManager(t *testing.T, config *configs.Cgroup) (m cgroups.Manager) {

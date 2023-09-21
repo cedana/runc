@@ -12,11 +12,11 @@ import (
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"
 
-	"github.com/opencontainers/runc/libcontainer/apparmor"
-	"github.com/opencontainers/runc/libcontainer/configs"
-	"github.com/opencontainers/runc/libcontainer/keys"
-	"github.com/opencontainers/runc/libcontainer/seccomp"
-	"github.com/opencontainers/runc/libcontainer/system"
+	"github.com/cedana/runc/libcontainer/apparmor"
+	"github.com/cedana/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer/keys"
+	"github.com/cedana/runc/libcontainer/seccomp"
+	"github.com/cedana/runc/libcontainer/system"
 )
 
 type linuxStandardInit struct {

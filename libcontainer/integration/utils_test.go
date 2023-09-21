@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/opencontainers/runc/libcontainer"
-	"github.com/opencontainers/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer/configs"
 )
 
 var busyboxTar string

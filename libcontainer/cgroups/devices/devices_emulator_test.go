@@ -25,7 +25,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/opencontainers/runc/libcontainer/devices"
+	"github.com/cedana/runc/libcontainer/devices"
 )
 
 func TestDeviceEmulatorLoad(t *testing.T) {

@@ -9,7 +9,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/opencontainers/runc/libcontainer/devices"
+	"github.com/cedana/runc/libcontainer/devices"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )
 

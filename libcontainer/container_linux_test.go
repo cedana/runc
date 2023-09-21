@@ -5,9 +5,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/opencontainers/runc/libcontainer/cgroups"
-	"github.com/opencontainers/runc/libcontainer/configs"
-	"github.com/opencontainers/runc/libcontainer/system"
+	"github.com/cedana/runc/libcontainer/cgroups"
+	"github.com/cedana/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer/system"
 )
 
 type mockCgroupManager struct {

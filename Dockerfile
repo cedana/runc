@@ -64,6 +64,6 @@ RUN git config --global --add safe.directory /go/src/github.com/opencontainers/r
 
 WORKDIR /go/src/github.com/opencontainers/runc
 
-# Fixup for cgroup v2.
+# Fixup for cgroup v2.co
 COPY script/prepare-cgroup-v2.sh /
 ENTRYPOINT [ "/prepare-cgroup-v2.sh" ]

@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/opencontainers/runc/libcontainer"
-	"github.com/opencontainers/runc/libcontainer/utils"
+	"github.com/cedana/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer/utils"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/urfave/cli"
 )
@@ -176,7 +176,7 @@ func execProcess(context *cli.Context) (int, error) {
 		return -1, err
 	}
 
-	r := &runner{
+	r := &Runner{
 		enableSubreaper: false,
 		shouldDestroy:   false,
 		container:       container,
@@ -188,7 +188,7 @@ func execProcess(context *cli.Context) (int, error) {
 		preserveFDs:     context.Int("preserve-fds"),
 		subCgroupPaths:  cgPaths,
 	}
-	return r.run(p)
+	return r.Run(p)
 }
 
 func getProcess(context *cli.Context, bundle string) (*specs.Process, error) {

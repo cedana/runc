@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"strconv"
 
+	"github.com/cedana/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer/userns"
 	criu "github.com/checkpoint-restore/go-criu/v6/rpc"
-	"github.com/opencontainers/runc/libcontainer"
-	"github.com/opencontainers/runc/libcontainer/userns"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"

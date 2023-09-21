@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/opencontainers/runc/libcontainer/cgroups"
-	"github.com/opencontainers/runc/libcontainer/cgroups/systemd"
-	"github.com/opencontainers/runc/libcontainer/configs"
-	"github.com/opencontainers/runc/libcontainer/devices"
+	"github.com/cedana/runc/libcontainer/cgroups"
+	"github.com/cedana/runc/libcontainer/cgroups/systemd"
+	"github.com/cedana/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer/devices"
 )
 
 // TestPodSkipDevicesUpdate checks that updating a pod having SkipDevices: true
@@ -123,7 +123,7 @@ func testSkipDevices(t *testing.T, skipDevices bool, expected []string) {
 	if os.Geteuid() != 0 {
 		t.Skip("Test requires root.")
 	}
-	// https://github.com/opencontainers/runc/issues/3743
+	// https://github.com/cedana/runc/issues/3743
 	centosVer, _ := exec.Command("rpm", "-q", "--qf", "%{version}", "centos-release").CombinedOutput()
 	if string(centosVer) == "7" {
 		t.Skip("Flaky on CentOS 7")

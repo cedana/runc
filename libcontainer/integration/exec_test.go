@@ -14,10 +14,10 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/opencontainers/runc/libcontainer"
-	"github.com/opencontainers/runc/libcontainer/cgroups"
-	"github.com/opencontainers/runc/libcontainer/cgroups/systemd"
-	"github.com/opencontainers/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer/cgroups"
+	"github.com/cedana/runc/libcontainer/cgroups/systemd"
+	"github.com/cedana/runc/libcontainer/configs"
 	"github.com/opencontainers/runtime-spec/specs-go"
 
 	"golang.org/x/sys/unix"
@@ -1719,7 +1719,7 @@ func testFdLeaks(t *testing.T, systemd bool) {
 	// Show the extra opened files.
 
 	excludedPaths := []string{
-		"anon_inode:bpf-prog", // FIXME: see https://github.com/opencontainers/runc/issues/2366#issuecomment-776411392
+		"anon_inode:bpf-prog", // FIXME: see https://github.com/cedana/runc/issues/2366#issuecomment-776411392
 	}
 
 	count := 0

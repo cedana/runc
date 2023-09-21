@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/opencontainers/runc/libcontainer/utils"
+	"github.com/cedana/runc/libcontainer/utils"
 )
 
 type syncType string

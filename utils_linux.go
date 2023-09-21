@@ -15,10 +15,10 @@ import (
 	"github.com/urfave/cli"
 	"golang.org/x/sys/unix"
 
-	"github.com/opencontainers/runc/libcontainer"
-	"github.com/opencontainers/runc/libcontainer/configs"
-	"github.com/opencontainers/runc/libcontainer/specconv"
-	"github.com/opencontainers/runc/libcontainer/utils"
+	"github.com/cedana/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer/specconv"
+	"github.com/cedana/runc/libcontainer/utils"
 )
 
 var errEmptyID = errors.New("container id cannot be empty")
@@ -185,7 +185,7 @@ func CreateContainer(context *cli.Context, id string, spec *specs.Spec) (*libcon
 	return libcontainer.Create(root, id, config)
 }
 
-type runner struct {
+type Runner struct {
 	init            bool
 	enableSubreaper bool
 	shouldDestroy   bool
@@ -201,7 +201,7 @@ type runner struct {
 	subCgroupPaths  map[string]string
 }
 
-func (r *runner) run(config *specs.Process) (int, error) {
+func (r *Runner) Run(config *specs.Process) (int, error) {
 	var err error
 	defer func() {
 		if err != nil {
@@ -287,18 +287,18 @@ func (r *runner) run(config *specs.Process) (int, error) {
 	return status, err
 }
 
-func (r *runner) destroy() {
+func (r *Runner) destroy() {
 	if r.shouldDestroy {
 		destroy(r.container)
 	}
 }
 
-func (r *runner) terminate(p *libcontainer.Process) {
+func (r *Runner) terminate(p *libcontainer.Process) {
 	_ = p.Signal(unix.SIGKILL)
 	_, _ = p.Wait()
 }
 
-func (r *runner) checkTerminal(config *specs.Process) error {
+func (r *Runner) checkTerminal(config *specs.Process) error {
 	detach := r.detach || (r.action == CT_ACT_CREATE)
 	// Check command-line for sanity.
 	if detach && config.Terminal && r.consoleSocket == "" {
@@ -337,7 +337,7 @@ const (
 	CT_ACT_RESTORE
 )
 
-func startContainer(context *cli.Context, action CtAct, criuOpts *libcontainer.CriuOpts) (int, error) {
+func StartContainer(context *cli.Context, action CtAct, criuOpts *libcontainer.CriuOpts) (int, error) {
 	if err := revisePidFile(context); err != nil {
 		return -1, err
 	}
@@ -351,7 +351,7 @@ func startContainer(context *cli.Context, action CtAct, criuOpts *libcontainer.C
 		return -1, errEmptyID
 	}
 
-	notifySocket := newNotifySocket(context, os.Getenv("NOTIFY_SOCKET"), id)
+	notifySocket := NewNotifySocket(context, os.Getenv("NOTIFY_SOCKET"), id)
 	if notifySocket != nil {
 		notifySocket.setupSpec(spec)
 	}
@@ -378,7 +378,7 @@ func startContainer(context *cli.Context, action CtAct, criuOpts *libcontainer.C
 		listenFDs = activation.Files(false)
 	}
 
-	r := &runner{
+	r := &Runner{
 		enableSubreaper: !context.Bool("no-subreaper"),
 		shouldDestroy:   !context.Bool("keep"),
 		container:       container,
@@ -392,5 +392,5 @@ func startContainer(context *cli.Context, action CtAct, criuOpts *libcontainer.C
 		criuOpts:        criuOpts,
 		init:            true,
 	}
-	return r.run(spec.Process)
+	return r.Run(spec.Process)
 }

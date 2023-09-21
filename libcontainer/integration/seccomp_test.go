@@ -8,8 +8,8 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/opencontainers/runc/libcontainer"
-	"github.com/opencontainers/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer/configs"
 	libseccomp "github.com/seccomp/libseccomp-golang"
 )
 

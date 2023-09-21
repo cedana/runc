@@ -11,9 +11,9 @@ import (
 	"time"
 
 	"github.com/containerd/console"
-	"github.com/opencontainers/runc/libcontainer"
-	"github.com/opencontainers/runc/libcontainer/configs"
-	"github.com/opencontainers/runc/libcontainer/utils"
+	"github.com/cedana/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer/utils"
 
 	"golang.org/x/sys/unix"
 )
@@ -234,7 +234,7 @@ func TestExecInTTY(t *testing.T) {
 	if testing.Short() {
 		return
 	}
-	t.Skip("racy; see https://github.com/opencontainers/runc/issues/2425")
+	t.Skip("racy; see https://github.com/cedana/runc/issues/2425")
 	config := newTemplateConfig(t, nil)
 	container, err := newContainer(t, config)
 	ok(t, err)
@@ -267,7 +267,7 @@ func TestExecInTTY(t *testing.T) {
 	}
 
 	// Repeat to increase chances to catch a race; see
-	// https://github.com/opencontainers/runc/issues/2425.
+	// https://github.com/cedana/runc/issues/2425.
 	for i := 0; i < 300; i++ {
 		var stdout bytes.Buffer
 

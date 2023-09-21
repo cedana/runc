@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/opencontainers/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
@@ -24,7 +24,7 @@ type notifySocket struct {
 	socketPath string
 }
 
-func newNotifySocket(context *cli.Context, notifySocketHost string, id string) *notifySocket {
+func NewNotifySocket(context *cli.Context, notifySocketHost string, id string) *notifySocket {
 	if notifySocketHost == "" {
 		return nil
 	}
@@ -84,7 +84,7 @@ func (s *notifySocket) setupSocketDirectory() error {
 }
 
 func notifySocketStart(context *cli.Context, notifySocketHost, id string) (*notifySocket, error) {
-	notifySocket := newNotifySocket(context, notifySocketHost, id)
+	notifySocket := NewNotifySocket(context, notifySocketHost, id)
 	if notifySocket == nil {
 		return nil, nil
 	}

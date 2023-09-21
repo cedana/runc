@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/moby/sys/user"
-	"github.com/opencontainers/runc/libcontainer"
-	"github.com/opencontainers/runc/libcontainer/utils"
+	"github.com/cedana/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer/utils"
 	"github.com/urfave/cli"
 )
 

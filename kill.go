@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/opencontainers/runc/libcontainer"
+	"github.com/cedana/runc/libcontainer"
 	"github.com/urfave/cli"
 	"golang.org/x/sys/unix"
 )

@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/opencontainers/runc/libcontainer/userns"
+	"github.com/cedana/runc/libcontainer/userns"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
 )
@@ -116,7 +116,7 @@ using the runc checkpoint command.`,
 		if err != nil {
 			return err
 		}
-		status, err := startContainer(context, CT_ACT_RESTORE, options)
+		status, err := StartContainer(context, CT_ACT_RESTORE, options)
 		if err != nil {
 			return err
 		}

@@ -7,7 +7,7 @@ import (
 	"errors"
 	"os"
 
-	"github.com/opencontainers/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer/configs"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )
 

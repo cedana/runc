@@ -14,11 +14,11 @@ import (
 
 	systemdDbus "github.com/coreos/go-systemd/v22/dbus"
 	dbus "github.com/godbus/dbus/v5"
-	"github.com/opencontainers/runc/libcontainer/cgroups"
-	"github.com/opencontainers/runc/libcontainer/configs"
-	"github.com/opencontainers/runc/libcontainer/devices"
-	"github.com/opencontainers/runc/libcontainer/seccomp"
-	libcontainerUtils "github.com/opencontainers/runc/libcontainer/utils"
+	"github.com/cedana/runc/libcontainer/cgroups"
+	"github.com/cedana/runc/libcontainer/configs"
+	"github.com/cedana/runc/libcontainer/devices"
+	"github.com/cedana/runc/libcontainer/seccomp"
+	libcontainerUtils "github.com/cedana/runc/libcontainer/utils"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/sirupsen/logrus"
 
@@ -67,7 +67,7 @@ func initMaps() {
 			clear bool
 			flag  int
 		}{
-			// "acl" cannot be mapped to MS_POSIXACL: https://github.com/opencontainers/runc/issues/3738
+			// "acl" cannot be mapped to MS_POSIXACL: https://github.com/cedana/runc/issues/3738
 			"async":         {true, unix.MS_SYNCHRONOUS},
 			"atime":         {true, unix.MS_NOATIME},
 			"bind":          {false, unix.MS_BIND},
