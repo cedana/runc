@@ -162,7 +162,7 @@ func createPidFile(path string, process *libcontainer.Process) error {
 	return os.Rename(tmpName, path)
 }
 
-func createContainer(context *cli.Context, id string, spec *specs.Spec) (*libcontainer.Container, error) {
+func CreateContainer(context *cli.Context, id string, spec *specs.Spec) (*libcontainer.Container, error) {
 	rootlessCg, err := shouldUseRootlessCgroupManager(context)
 	if err != nil {
 		return nil, err
@@ -356,7 +356,7 @@ func startContainer(context *cli.Context, action CtAct, criuOpts *libcontainer.C
 		notifySocket.setupSpec(spec)
 	}
 
-	container, err := createContainer(context, id, spec)
+	container, err := CreateContainer(context, id, spec)
 	if err != nil {
 		return -1, err
 	}
