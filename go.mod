@@ -1,10 +1,12 @@
 module github.com/cedana/runc
 
-go 1.20
+go 1.22
+
+toolchain go1.23.4
 
 require (
 	github.com/checkpoint-restore/go-criu/v6 v6.3.0
-	github.com/cilium/ebpf v0.11.0
+	github.com/cilium/ebpf v0.17.0
 	github.com/containerd/console v1.0.3
 	github.com/coreos/go-systemd/v22 v22.5.0
 	github.com/cyphar/filepath-securejoin v0.2.4
@@ -20,8 +22,8 @@ require (
 	github.com/syndtr/gocapability v0.0.0-20200815063812-42c35b437635
 	github.com/urfave/cli v1.22.14
 	github.com/vishvananda/netlink v1.1.0
-	golang.org/x/net v0.15.0
-	golang.org/x/sys v0.12.0
+	golang.org/x/net v0.23.0
+	golang.org/x/sys v0.28.0
 	google.golang.org/protobuf v1.31.0
 )
 
@@ -29,5 +31,4 @@ require (
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/vishvananda/netns v0.0.4 // indirect
-	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
 )
